@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import SplashScreen from './components/SplashScreen';
 import Hero from './components/Hero';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
 import Background from './components/Background';
-import FloatingBottle from './components/FloatingBottle';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -26,11 +25,12 @@ function App() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-darkbeer text-white">
       <Background />
+      
       <AnimatePresence mode="wait">
         {showSplash && <SplashScreen onFinish={startApp} />}
+        
         {!showSplash && (
           <>
-            <FloatingBottle step={step} />
             {step === 'hero' && <Hero onStart={startQuiz} />}
             {step === 'quiz' && <Quiz onComplete={finishQuiz} />}
             {step === 'result' && result && <Result beer={result} onRestart={restart} />}
