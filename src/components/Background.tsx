@@ -12,12 +12,7 @@ export default function Background() {
 
     const bubbles: any[] = [];
     for (let i = 0; i < 60; i++) {
-      bubbles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 5 + 2,
-        speed: Math.random() * 2 + 0.8
-      });
+      bubbles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 5 + 2, speed: Math.random() * 2 + 0.8 });
     }
 
     const animate = () => {
