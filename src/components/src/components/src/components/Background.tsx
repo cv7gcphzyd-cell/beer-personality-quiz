@@ -35,12 +35,10 @@ export default function Background() {
     };
     animate();
 
-    const handleResize = () => {
+    window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    });
   }, []);
 
   return (
